@@ -1,0 +1,21 @@
+const express = require('express');
+const cors = require('cors');
+const adminRoutes = require('./routes/adminRoutes');
+const authRoutes = require('./routes/authRoutes');
+const facultyRoutes = require('./routes/facultyRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const examRoutes = require('./routes/examRoutes');
+const marksRoutes = require('./routes/marksRoutes');
+const feeRoutes = require('./routes/feeRoutes');
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/api', feeRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api', facultyRoutes);
+app.use('/api', studentRoutes);
+app.use('/api', examRoutes);
+app.use('/api', marksRoutes);
+
+module.exports = app;
